@@ -1,33 +1,34 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CarouselItem {
-  id: string
-  image: string
-  title: string
-  description: string
+  id: string;
+  image: string;
+  title: string;
+  description: string;
 }
 
 interface CarouselProps {
-  items: CarouselItem[]
-  autoPlay?: boolean
+  items: CarouselItem[];
+  autoPlay?: boolean;
 }
 
 export function Carousel({ items, autoPlay = true }: CarouselProps) {
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (!autoPlay) return
+    if (!autoPlay) return;
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % items.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [items.length, autoPlay])
+      setCurrent((prev) => (prev + 1) % items.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [items.length, autoPlay]);
 
-  const next = () => setCurrent((prev) => (prev + 1) % items.length)
-  const prev = () => setCurrent((prev) => (prev - 1 + items.length) % items.length)
+  const next = () => setCurrent((prev) => (prev + 1) % items.length);
+  const prev = () =>
+    setCurrent((prev) => (prev - 1 + items.length) % items.length);
 
   return (
     <div className="relative h-96 md:h-[500px] rounded-xl overflow-hidden group">
@@ -37,7 +38,11 @@ export function Carousel({ items, autoPlay = true }: CarouselProps) {
       >
         {items.map((item) => (
           <div key={item.id} className="min-w-full h-96 md:h-[500px] relative">
-            <img src={item.image || "/placeholder.svg"} alt={item.title} className="w-full h-full object-cover" />
+            <img
+              src={item.image || "/placeholder.svg"}
+              alt={item.title}
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <h3 className="font-serif text-3xl mb-2">{item.title}</h3>
@@ -69,11 +74,13 @@ export function Carousel({ items, autoPlay = true }: CarouselProps) {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-white w-8" : "bg-white/50"}`}
+            className={`w-2 h-2 rounded-full transition-all ${
+              i === current ? "bg-white w-8" : "bg-white/50"
+            }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }
