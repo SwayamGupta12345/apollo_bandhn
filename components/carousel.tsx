@@ -41,7 +41,7 @@ export function Carousel({ items, autoPlay = true }: CarouselProps) {
             <img
               src={item.image || "/placeholder.svg"}
               alt={item.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">

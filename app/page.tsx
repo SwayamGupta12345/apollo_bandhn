@@ -147,7 +147,7 @@ export default function LandingPage() {
                 key={i}
                 className="p-8 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow border border-gray-100"
               >
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center mb-4">
+                <div className="w-14 h-14 rounded-full bg-linear-to-br from-blue-100 to-red-100 flex items-center justify-center mb-4">
                   <Icon className="w-7 h-7" style={{ color: "#0073B1" }} />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
@@ -230,14 +230,14 @@ export default function LandingPage() {
                 "Mental health support and resources",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-1" />
                   <span className="text-gray-700">{item}</span>
                 </li>
               ))}
             </ul>
             <Link
               href="/membership"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+              className="inline-block px-8 py-3 bg-linear-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
             >
               Explore Wellness Plans
             </Link>

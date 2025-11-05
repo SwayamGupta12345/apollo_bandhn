@@ -1,12 +1,20 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { Heart, Menu, X, ChevronDown } from "lucide-react"
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const browseOptions = [
+    "Mother Tongue",
+    "Caste",
+    "Religion",
+    "City",
+    "Occupation",
+  ];
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
@@ -14,17 +22,33 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-red-700 flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white fill-white" />
+            <div className="flex items-center justify-center">
+              <img
+                src="/main_heart.jpg"
+                alt="Logo"
+                className="w-15 h-15 object-contain"
+              />
             </div>
-            <span className="font-serif font-bold text-xl hidden sm:inline" style={{ color: "#0073B1" }}>
-              Apollo Bandhn
+            <span
+              className="font-serif font-bold text-xl hidden sm:inline"
+              style={{ color: "#01588D" }}
+            >
+              Apollo
+            </span>
+            <span
+              className="font-serif font-bold text-xl hidden sm:inline"
+              style={{ color: "#810134" }}
+            >
+              Bandhn
             </span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium text-sm">
+            <Link
+              href="/"
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm"
+            >
               Home
             </Link>
 
@@ -33,7 +57,7 @@ export function Navigation() {
                 Browse By <ChevronDown className="w-4 h-4" />
               </button>
               <div className="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
-                {["Mother Tongue", "Caste", "Religion", "City", "Occupation"].map((item) => (
+                {browseOptions.map((item) => (
                   <Link
                     key={item}
                     href={`/browse?filter=${item.toLowerCase()}`}
@@ -45,23 +69,32 @@ export function Navigation() {
               </div>
             </div>
 
-            <Link href="/membership" className="text-gray-700 hover:text-blue-600 font-medium text-sm">
+            <Link
+              href="/membership"
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm"
+            >
               Membership
             </Link>
 
-            <Link href="/help" className="text-gray-700 hover:text-blue-600 font-medium text-sm">
+            <Link
+              href="/help"
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm"
+            >
               Help
             </Link>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login" className="px-6 py-2 text-blue-600 font-medium text-sm hover:text-blue-700">
+            <Link
+              href="/login"
+              className="px-6 py-2 text-blue-600 font-medium text-sm hover:text-blue-700"
+            >
               Login
             </Link>
             <Link
               href="/register"
-              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-red-700 text-white rounded-lg font-medium text-sm hover:shadow-lg transition-shadow"
+              className="px-6 py-2 bg-linear-to-r from-blue-600 to-red-700 text-white rounded-lg font-medium text-sm hover:shadow-lg transition-shadow"
             >
               Register Free
             </Link>
@@ -75,16 +108,58 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-3">
-            <Link href="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
+          <div className="md:hidden pb-4 space-y-2">
+            <Link
+              href="/"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+            >
               Home
             </Link>
-            <Link href="/membership" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
+
+            {/* Mobile Browse Dropdown */}
+            <div>
+              <button
+                onClick={() =>
+                  setOpenDropdown(openDropdown === "browse" ? null : "browse")
+                }
+                className="w-full flex justify-between items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+              >
+                <span>Browse By</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${
+                    openDropdown === "browse" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openDropdown === "browse" && (
+                <div className="pl-6 space-y-1">
+                  {browseOptions.map((item) => (
+                    <Link
+                      key={item}
+                      href={`/browse?filter=${item.toLowerCase()}`}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/membership"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+            >
               Membership
             </Link>
-            <Link href="/help" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
+
+            <Link
+              href="/help"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+            >
               Help
             </Link>
+
             <div className="flex gap-2 pt-4">
               <Link
                 href="/login"
@@ -94,7 +169,7 @@ export function Navigation() {
               </Link>
               <Link
                 href="/register"
-                className="flex-1 px-4 py-2 text-center bg-gradient-to-r from-blue-600 to-red-700 text-white rounded font-medium"
+                className="flex-1 px-4 py-2 text-center bg-linear-to-r from-blue-600 to-red-700 text-white rounded font-medium"
               >
                 Register
               </Link>
@@ -103,5 +178,5 @@ export function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }
