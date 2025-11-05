@@ -38,7 +38,7 @@ export function Carousel({ items, autoPlay = true }: CarouselProps) {
         {items.map((item) => (
           <div key={item.id} className="min-w-full h-96 md:h-[500px] relative">
             <img src={item.image || "/placeholder.svg"} alt={item.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <h3 className="font-serif text-3xl mb-2">{item.title}</h3>
               <p className="text-gray-200 max-w-md">{item.description}</p>
