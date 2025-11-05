@@ -75,7 +75,12 @@ export function Navigation() {
             >
               Membership
             </Link>
-
+            <Link
+              href="/about"
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm"
+            >
+              About Us
+            </Link>
             <Link
               href="/help"
               className="text-gray-700 hover:text-blue-600 font-medium text-sm"
@@ -152,7 +157,12 @@ export function Navigation() {
             >
               Membership
             </Link>
-
+            <Link
+              href="/about"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+            >
+              About Us
+            </Link>
             <Link
               href="/help"
               className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"

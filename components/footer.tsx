@@ -1,5 +1,7 @@
-import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Twitter, Heart } from "lucide-react"
+"use client";
+
+import Link from "next/link";
+import { Facebook, Instagram, Linkedin, Twitter, Heart } from "lucide-react";
 
 export function Footer() {
   return (
@@ -9,13 +11,21 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-red-500 flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white fill-white" />
+              <div className=" bg-linear-to-br from-blue-400 to-red-500 flex items-center justify-center">
+                {/* <Heart className="w-6 h-6 text-white fill-white" /> */}
+                <img
+                  src="/main_heart.jpg"
+                  alt="Apollo Bandhn Logo"
+                  className="w-10 h-9"
+                />
               </div>
-              <span className="font-serif font-bold text-lg">Apollo Bandhn</span>
+              <span className="font-serif font-bold text-lg">
+                Apollo Bandhn
+              </span>
             </div>
             <p className="text-gray-400 text-sm">
-              Where eternal bonds begin. Your trusted companion in finding lifelong love.
+              Where eternal bonds begin. Your trusted companion in finding
+              lifelong love.
             </p>
           </div>
 
@@ -23,9 +33,16 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Explore</h3>
             <ul className="space-y-2">
-              {["Home", "Browse Profiles", "Success Stories", "Sitemap"].map((item) => (
+              {["Home", "Browse Profiles", "Success Stories"].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault(); // prevent default anchor behavior
+                      window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top smoothly
+                    }}
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
                     {item}
                   </Link>
                 </li>
@@ -37,10 +54,24 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              {["Premium Plans", "Verified Profiles", "Wellness Programs", "Apollo Getaways"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                    {item}
+              {[
+                { label: "Premium Plans", href: "/membership" },
+                { label: "Wellness Programs", href: "#wellness" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                    {...(item.href === "#" && {
+                      onClick: (e) => {
+                        e.preventDefault();
+                        if (typeof window !== "undefined") {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      },
+                    })}
+                  >
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -51,13 +82,18 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Help</h3>
             <ul className="space-y-2">
-              {["Contact Us", "FAQ", "Privacy Policy", "Terms of Use"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              {["Contact Us", "FAQ", "Privacy Policy", "Terms of Use"].map(
+                (item) => (
+                  <li key={item}>
+                    <Link
+                      href="/help"
+                      className="text-gray-400 hover:text-white text-sm transition-colors"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -65,9 +101,12 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              {["About Us", "Blog", "Careers", "Fraud Alert"].map((item) => (
+              {["About Us"].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link
+                    href="/about"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
                     {item}
                   </Link>
                 </li>
@@ -80,7 +119,8 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2025 Apollo Bandhn. All rights reserved. Your trust is our commitment.
+              © 2025 Apollo Bandhn. All rights reserved. Your trust is our
+              commitment.
             </p>
             <div className="flex gap-4">
               {[
@@ -89,7 +129,11 @@ export function Footer() {
                 { icon: Twitter, href: "#" },
                 { icon: Linkedin, href: "#" },
               ].map((social, i) => (
-                <Link key={i} href={social.href} className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  key={i}
+                  href={social.href}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <social.icon className="w-5 h-5" />
                 </Link>
               ))}
@@ -98,5 +142,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
