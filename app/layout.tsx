@@ -9,6 +9,12 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Apollo Bandhn - Dil se judey, sehat se bandhey",
   description: "India's premium matrimony platform connecting hearts for lifelong companionship",
+  icons: {
+  icon: "/logo.png",
+  shortcut: "/logo.png",
+  apple: "/logo.png",
+}
+
 }
 
 export default function RootLayout({

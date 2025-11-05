@@ -80,36 +80,39 @@ export default function LandingPage() {
       <Navigation />
 
       {/* CTA Section */}
-<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-  <div className="gradient-soft rounded-2xl p-12 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left relative overflow-hidden">
-    {/* Left Side - Text */}
-    <div className="lg:w-1/2 z-10">
-      <h2 className="font-serif text-4xl mb-4" style={{ color: "#0073B1" }}>
-        Find Your Perfect Match
-      </h2>
-      <p className="text-gray-700 text-lg mb-8 max-w-2xl mx-auto lg:mx-0">
-        Apollo Bandhn connects verified, like-minded individuals seeking
-        meaningful, lasting relationships. Begin your journey to lifelong
-        happiness today.
-      </p>
-      <Link
-        href="/register"
-        className="inline-block px-8 py-4 bg-linear-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold text-lg hover:shadow-lg transition-shadow"
-      >
-        Register Free Today
-      </Link>
-    </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="gradient-soft rounded-2xl p-12 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left relative overflow-hidden">
+          {/* Left Side - Text */}
+          <div className="lg:w-1/2 z-10">
+            <h2
+              className="font-serif text-4xl mb-4"
+              style={{ color: "#0073B1" }}
+            >
+              Find Your Perfect Match
+            </h2>
+            <p className="text-gray-700 text-lg mb-8 max-w-2xl mx-auto lg:mx-0">
+              Apollo Bandhn connects verified, like-minded individuals seeking
+              meaningful, lasting relationships. Begin your journey to lifelong
+              happiness today.
+            </p>
+            <Link
+              href="/register"
+              className="inline-block px-8 py-4 bg-linear-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold text-lg hover:shadow-lg transition-shadow"
+            >
+              Register Free Today
+            </Link>
+          </div>
 
-    {/* Right Side - Image */}
-    <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center lg:justify-end">
-      <img
-        src="/va-removebg-preview.png"
-        alt="Happy couple"
-        className="w-80 h-auto object-contain drop-shadow-2xl"
-      />
-    </div>
-  </div>
-</section>
+          {/* Right Side - Image */}
+          <div className=" w-full h-full lg:w-1/2 mt-10 lg:mt-0 flex justify-center lg:justify-center">
+            <img
+              src="/va-removebg-preview.png"
+              alt="Happy couple"
+              className="w-80 h-auto object-contain drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Hero Carousel */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
