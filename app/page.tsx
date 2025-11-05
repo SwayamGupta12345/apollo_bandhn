@@ -11,6 +11,58 @@ import {
   Zap,
 } from "lucide-react";
 
+const AmbassadorStories = [
+  {
+    id: "1",
+    image: "/va1.jpg",
+    title: "First Meet",
+    description:
+      "They met on our platform and felt an instant connection, marking the beginning of a beautiful journey together.",
+  },
+  {
+    id: "2",
+    image: "/va2.jpg",
+    title: "Verification & Medical Tests",
+    description:
+      "After completing verification and health checks, their bond grew stronger with trust and care from the start.",
+  },
+  {
+    id: "3",
+    image: "/va3.jpg",
+    title: "Marriage Ceremony",
+    description:
+      "Smiling faces all around as love blossomed into a lifelong commitment, celebrated with family and friends.",
+  },
+  {
+    id: "4",
+    image: "/va4.jpg",
+    title: "Marriage Photos",
+    description:
+      "Captured joyful moments of the couple’s special day, showcasing their happiness and new beginnings.",
+  },
+  {
+    id: "5",
+    image: "/va5.jpg",
+    title: "News of First Child",
+    description:
+      "Welcoming their first child with excitement and gratitude, supported by Apollo Bandhn’s parental care services.",
+  },
+  {
+    id: "6",
+    image: "/va6.jpg",
+    title: "Happy Family with Daughter",
+    description:
+      "Living their dream as a happy family, benefitting from Apollo’s trusted medical and wellness support.",
+  },
+  {
+    id: "7",
+    image: "/va7.jpg",
+    title: "Loving Marriage – Happily Ever After",
+    description:
+      "A perfect blend of love, care, and security, with proper insurance and ongoing support from Apollo Bandhn.",
+  },
+];
+
 const successStories = [
   {
     id: "1",
@@ -78,6 +130,27 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
+      {/* Hero Section
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <h1 className="font-serif font-bold text-5xl sm:text-6xl md:text-6xl lg:text-8xl mb-6">
+            <span className="text-[#01588D]">Apollo</span>
+            <span className="text-[#810134] ml-2">Bandhn</span>
+          </h1>
+
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Redefining matrimony for modern India. Where authenticity meets
+            innovation, and love finds its true path.
+          </p>
+        </div>
+      </section> */}
+      <div className="flex justify-center my-12">
+        <img
+          src="/logo.png"
+          alt="Apollo Bandhn Logo"
+          className="w-40 sm:w-56 md:w-64 lg:w-82 xl:w-90 h-auto object-contain"
+        />
+      </div>
 
       {/* CTA Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -112,6 +185,21 @@ export default function LandingPage() {
             />
           </div>
         </div>
+      </section>
+      {/* Ambassador Carousel */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="mb-6">
+          <h2
+            className="font-serif text-3xl md:text-4xl mb-2"
+            style={{ color: "#0073B1" }}
+          >
+            Success Stories
+          </h2>
+          <p className="text-gray-600">
+            A complete love story from Apollo Bandhn
+          </p>
+        </div>
+        <Carousel items={AmbassadorStories} autoPlay={true} />
       </section>
 
       {/* Hero Carousel */}
@@ -211,7 +299,10 @@ export default function LandingPage() {
       </section>
 
       {/* Apollo Wellness */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section
+        id="wellness"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+      >
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2
@@ -272,7 +363,6 @@ export default function LandingPage() {
         >
           Register Free Now
         </Link>
-        
       </section>
 
       <Footer />
