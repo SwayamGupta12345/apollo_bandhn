@@ -30,13 +30,13 @@ export function Navigation() {
               />
             </div>
             <span
-              className="font-serif font-bold text-xl hidden sm:inline"
+              className="font-serif font-bold text-xl sm:inline"
               style={{ color: "#01588D" }}
             >
               Apollo
             </span>
             <span
-              className="font-serif font-bold text-xl hidden sm:inline"
+              className="font-serif font-bold text-xl sm:inline"
               style={{ color: "#810134" }}
             >
               Bandhn
@@ -44,7 +44,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             <Link
               href="/"
               className="text-gray-700 hover:text-blue-600 font-medium text-sm"
@@ -85,7 +85,7 @@ export function Navigation() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/login"
               className="px-6 py-2 text-blue-600 font-medium text-sm hover:text-blue-700"
@@ -101,14 +101,14 @@ export function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className="lg:hidden pb-4 space-y-2">
             <Link
               href="/"
               className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"

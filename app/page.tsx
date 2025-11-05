@@ -268,10 +268,11 @@ export default function LandingPage() {
         </p>
         <Link
           href="/register"
-          className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:shadow-lg transition-shadow"
+          className="inline-block px-8 py-4 bg-linear-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
         >
           Register Free Now
         </Link>
+        
       </section>
 
       <Footer />
