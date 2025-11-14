@@ -60,10 +60,7 @@ export default function BillingPage() {
                 <span className="text-gray-600">Subtotal</span>
                 <span className="font-medium">{selected.price}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">GST (18%)</span>
-                <span className="font-medium">₹180</span>
-              </div>
+             
               <div className="flex justify-between pt-4 border-t border-gray-200 text-lg">
                 <span className="font-semibold">Total</span>
                 <span className="font-bold text-blue-600">{selected.price}</span>
