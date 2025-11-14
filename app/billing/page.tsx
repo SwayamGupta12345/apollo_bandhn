@@ -14,12 +14,12 @@ export default function BillingPage() {
   const planDetails: Record<string, { price: string; period: string; features: string[] }> = {
     gold: {
       price: "₹999",
-      period: "3 months",
+      period: "monthly",
       features: ["Unlimited chat access", "View contact details", "Advanced search filters"],
     },
     platinum: {
       price: "₹2499",
-      period: "6 months",
+      period: "monthly",
       features: ["Everything in Gold", "Dedicated relationship manager", "Couple wellness program"],
     },
   }
@@ -70,7 +70,7 @@ export default function BillingPage() {
               </div>
             </div>
 
-            <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold hover:shadow-lg">
+            <button className="w-full py-3 bg-linear-to-r from-blue-600 to-red-700 text-white rounded-lg font-semibold hover:shadow-lg">
               Complete Payment
             </button>
 
